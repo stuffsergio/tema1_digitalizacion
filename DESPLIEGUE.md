@@ -202,26 +202,20 @@ sudo ufw status
 
 ## Cuando cambies el código
 
-En el PC, sube los cambios a GitHub. En Termius:
+En el PC, sube los cambios a GitHub. En Termius, desde cualquier carpeta:
 
 ```bash
-cd /var/www/digitalizacion
-git pull
-npm install
-npm run build
-docker build -t digitalizacion-api .
-docker rm -f digitalizacion-api
-docker run -d \
-  --name digitalizacion-api \
-  --restart unless-stopped \
-  --network RED \
-  -p 127.0.0.1:3000:3000 \
-  --env-file .env \
-  -v digitalizacion-data:/app/data \
-  digitalizacion-api
+actualizar digitalizacion
 ```
 
-`git pull` no toca el `.env` ni el volumen. `digitalizacion-web` lee `dist` del disco, así que un `npm run build` nuevo se ve al recargar. Si cambias `despliegue/nginx-proxy.conf`, recrea ese contenedor con el mismo `docker run`.
+Eso baja el código, construye la web, reconstruye el API y vuelve a crear los dos contenedores. No toca el `.env` ni el volumen `digitalizacion-data`.
+
+La primera vez hay que instalar el comando. Después de un `git pull`:
+
+```bash
+sudo cp /var/www/digitalizacion/despliegue/actualizar-comando.sh /usr/local/bin/actualizar
+sudo chmod +x /usr/local/bin/actualizar
+```
 
 ## Copia de seguridad
 
