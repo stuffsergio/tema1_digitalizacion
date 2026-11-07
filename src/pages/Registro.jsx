@@ -40,10 +40,15 @@ export function Registro() {
 
   async function enviar(event) {
     event.preventDefault();
+    const alias = formulario.alias.trim().replace(/\s+/g, " ");
+    if (!/^[\p{L}\p{N} ]{2,24}$/u.test(alias)) {
+      setError("El alias admite letras, números y espacios, de 2 a 24 caracteres.");
+      return;
+    }
     setError("");
     setEnviando(true);
     try {
-      await registrar(formulario);
+      await registrar({ ...formulario, alias });
       navigate(destino, { replace: true });
     } catch (fallo) {
       setError(fallo.message);
@@ -67,7 +72,21 @@ export function Registro() {
         </label>
         <label className="grid gap-1 text-[0.95rem]">
           Alias en el ranking
-          <input className="campo" required minLength={2} maxLength={24} value={formulario.alias} onChange={cambiar("alias")} />
+          <input
+            className="campo"
+            autoComplete="nickname"
+            autoCapitalize="off"
+            spellCheck="false"
+            aria-describedby="pista-alias"
+            required
+            minLength={2}
+            maxLength={24}
+            value={formulario.alias}
+            onChange={cambiar("alias")}
+          />
+          <span className="pista" id="pista-alias">
+            Letras, números y espacios. De 2 a 24 caracteres.
+          </span>
         </label>
         <label className="grid gap-1 text-[0.95rem]">
           Email
@@ -89,16 +108,15 @@ export function Registro() {
           Código de clase
           <input className="campo" required value={formulario.codigoClase} onChange={cambiar("codigoClase")} />
         </label>
-        <label className="flex items-start gap-3 text-[0.95rem] leading-snug">
-          <input
-            className="mt-1 size-4 accent-ink"
-            type="checkbox"
-            checked={formulario.enRanking}
-            onChange={cambiar("enRanking")}
-          />
+        <label className="casilla">
+          <input type="checkbox" checked={formulario.enRanking} onChange={cambiar("enRanking")} />
           Quiero aparecer en el ranking de la clase.
         </label>
-        {error ? <p className="text-[0.95rem] text-mal">{error}</p> : null}
+        {error ? (
+          <p className="text-[0.95rem] text-mal" role="alert">
+            {error}
+          </p>
+        ) : null}
         <button className="btn w-full sm:w-auto" type="submit" disabled={enviando}>
           {enviando ? "Creando la cuenta" : "Crear la cuenta"}
         </button>

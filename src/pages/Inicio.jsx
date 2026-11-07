@@ -45,12 +45,7 @@ export function Inicio() {
         <p className="mt-2 text-[0.85rem] leading-relaxed text-ink/60">
           {usuario
             ? `Cada lección leída y cada nivel aprobado suma un hito. Estás en la cuenta de ${usuario.alias}.`
-            : "Sin cuenta, las lecciones se recuerdan solo en este navegador."}{" "}
-          {usuario ? null : (
-            <Link className="underline decoration-mark decoration-2 underline-offset-[0.22em]" to="/entrar">
-              Entra para guardarlo en tu perfil.
-            </Link>
-          )}
+            : "Las lecciones se pueden leer sin cuenta. Para guardar el progreso y entrar en el ranking, crea una cuenta o inicia sesión."}
         </p>
       </div>
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">

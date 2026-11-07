@@ -274,8 +274,12 @@ const servidor = createServer(async (req, res) => {
       const alias = limpiarTexto(cuerpo.alias, 2, 24);
       const email = String(cuerpo.email ?? "").trim().toLowerCase();
       const contrasena = String(cuerpo.contrasena ?? "");
-      if (!nombre || !alias || !aliasValido(alias) || !emailValido(email)) {
-        enviar(res, 400, { error: "Revisa el nombre, el alias y el email." });
+      if (!nombre || !emailValido(email)) {
+        enviar(res, 400, { error: "Revisa el nombre y el email." });
+        return;
+      }
+      if (!alias || !aliasValido(alias)) {
+        enviar(res, 400, { error: "El alias admite letras, números y espacios, de 2 a 24 caracteres." });
         return;
       }
       if (contrasena.length < 8 || contrasena.length > 72) {

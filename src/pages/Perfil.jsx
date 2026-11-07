@@ -85,18 +85,31 @@ export function Perfil() {
         </p>
         <label className="grid gap-1 text-[0.95rem]">
           Alias
-          <input className="campo" required minLength={2} maxLength={24} value={alias} onChange={(event) => setAlias(event.target.value)} />
-        </label>
-        <label className="flex items-start gap-3 text-[0.95rem] leading-snug">
           <input
-            className="mt-1 size-4 accent-ink"
-            type="checkbox"
-            checked={enRanking}
-            onChange={(event) => setEnRanking(event.target.checked)}
+            className="campo"
+            autoComplete="nickname"
+            autoCapitalize="off"
+            spellCheck="false"
+            aria-describedby="pista-alias"
+            required
+            minLength={2}
+            maxLength={24}
+            value={alias}
+            onChange={(event) => setAlias(event.target.value)}
           />
+          <span className="pista" id="pista-alias">
+            Letras, números y espacios. De 2 a 24 caracteres.
+          </span>
+        </label>
+        <label className="casilla">
+          <input type="checkbox" checked={enRanking} onChange={(event) => setEnRanking(event.target.checked)} />
           Aparecer en el ranking de la clase.
         </label>
-        {error ? <p className="text-[0.95rem] text-mal">{error}</p> : null}
+        {error ? (
+          <p className="text-[0.95rem] text-mal" role="alert">
+            {error}
+          </p>
+        ) : null}
         {aviso ? <p className="text-[0.95rem]">{aviso}</p> : null}
         <div className="flex flex-col gap-3 sm:flex-row">
           <button className="btn w-full sm:w-auto" type="submit" disabled={enviando}>

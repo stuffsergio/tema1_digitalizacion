@@ -70,7 +70,11 @@ export function Entrar() {
             onChange={(event) => setContrasena(event.target.value)}
           />
         </label>
-        {error ? <p className="text-[0.95rem] text-mal">{error}</p> : null}
+        {error ? (
+          <p className="text-[0.95rem] text-mal" role="alert">
+            {error}
+          </p>
+        ) : null}
         <button className="btn w-full sm:w-auto" type="submit" disabled={enviando}>
           {enviando ? "Entrando" : "Entrar"}
         </button>
