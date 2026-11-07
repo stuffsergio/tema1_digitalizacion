@@ -2,10 +2,10 @@
 
 La web y el API van separados, igual que en el resto de proyectos, con un paso más para el backend.
 
-- Nginx sirve el frontend: la carpeta `dist` que genera `npm run build`.
-- Docker arranca el API con el `Dockerfile`. El contenedor solo ejecuta `server/index.js`.
-- Nginx reenvía `/api/` a `127.0.0.1:3000`. Ese puerto queda en el propio VPS. Desde internet solo entran el 80 y el 443.
-- Las cuentas y el ranking viven en `data/app.db`, dentro de un volumen de Docker. Recrear el contenedor no borra esa base.
+- El puerto 80 y el 443 los ocupa Nginx Proxy Manager (`npm-npm-1`). El Nginx de Ubuntu se queda apagado.
+- Un contenedor `digitalizacion-web` sirve la carpeta `dist`. Otro, `digitalizacion-api`, ejecuta `server/index.js`.
+- Proxy Manager envía el dominio a `digitalizacion-web`. Ese contenedor reenvía `/api/` a `digitalizacion-api`.
+- Las cuentas y el ranking viven en el volumen `digitalizacion-data`. Recrear los contenedores no borra esa base.
 
 Sustituye `USUARIO`, `TU_USUARIO/TU_REPO` y `tudominio.ejemplo` por los tuyos. Los comandos del VPS se ejecutan en Termius.
 
@@ -77,7 +77,15 @@ Guarda con Ctrl+O y sal con Ctrl+X.
 
 El `Dockerfile` ya fija `NODE_ENV=production`, `HOST=0.0.0.0` y `TRUST_PROXY=1`. En este ordenador el API sigue escuchando solo en `127.0.0.1`. Dentro del contenedor escucha en todas las interfaces, y Docker publica ese puerto únicamente en el `127.0.0.1` del VPS.
 
-## 5. Frontend con Nginx
+## 5. Apagar el Nginx de Ubuntu
+
+En este VPS el 80 ya lo publica `npm-npm-1`. El Nginx del sistema se queda instalado y apagado.
+
+```bash
+sudo systemctl disable --now nginx
+```
+
+## 6. Construir el frontend
 
 ```bash
 cd /var/www/digitalizacion
@@ -87,72 +95,75 @@ npm run build
 
 Tiene que aparecer `dist`.
 
-```bash
-sudo cp /var/www/digitalizacion/despliegue/nginx.conf /etc/nginx/sites-available/digitalizacion
-sudo nano /etc/nginx/sites-available/digitalizacion
-```
+## 7. Contenedores en la red de Proxy Manager
 
-Sustituye `tudominio.ejemplo` en `server_name`. `root` ya apunta a `/var/www/digitalizacion/dist`. El bloque `/api/` apunta a `http://127.0.0.1:3000`.
+Mira el nombre de la red que comparten Proxy Manager y el resto de webs:
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/digitalizacion /etc/nginx/sites-enabled/digitalizacion
-sudo rm -f /etc/nginx/sites-enabled/default
-sudo nginx -t
-sudo systemctl reload nginx
+docker inspect npm-npm-1 --format '{{range $n, $c := .NetworkSettings.Networks}}{{$n}}{{"\n"}}{{end}}'
 ```
 
-## 6. Backend con Docker
+En los comandos de abajo, cambia `RED` por ese nombre. En este VPS es `proxy-net`.
 
-Desde la raíz del repo, donde está el `Dockerfile`:
+El API:
 
 ```bash
 cd /var/www/digitalizacion
 docker build -t digitalizacion-api .
-docker rm -f digitalizacion-api 2>/dev/null || true
+docker rm -f digitalizacion-api
 docker run -d \
   --name digitalizacion-api \
   --restart unless-stopped \
+  --network RED \
   -p 127.0.0.1:3000:3000 \
   --env-file .env \
   -v digitalizacion-data:/app/data \
   digitalizacion-api
 ```
 
-`-p 127.0.0.1:3000:3000` deja el API fuera de internet. El volumen `digitalizacion-data` guarda `app.db`. Hay que repetir ese mismo nombre cada vez que recrees el contenedor.
+`-p 127.0.0.1:3000:3000` solo permite probar el API desde el propio VPS. El volumen `digitalizacion-data` guarda `app.db`. Hay que repetir ese mismo nombre cada vez que recrees el contenedor.
+
+La web, con la configuración `despliegue/nginx-proxy.conf`:
+
+```bash
+docker rm -f digitalizacion-web
+docker run -d \
+  --name digitalizacion-web \
+  --restart unless-stopped \
+  --network RED \
+  -v /var/www/digitalizacion/dist:/usr/share/nginx/html:ro \
+  -v /var/www/digitalizacion/despliegue/nginx-proxy.conf:/etc/nginx/conf.d/default.conf:ro \
+  nginx:alpine
+```
 
 Comprueba:
 
 ```bash
-docker ps
 curl http://127.0.0.1:3000/api/salud
+docker ps --filter name=digitalizacion
 ```
 
-`docker ps` tiene que mostrar `digitalizacion-api` en marcha, y `curl` tiene que responder `{"ok":true}`. Si el contenedor se cae:
+`curl` tiene que responder `{"ok":true}`. Los dos contenedores tienen que estar en marcha. Si uno se cae, `docker logs digitalizacion-api` o `docker logs digitalizacion-web`.
 
-```bash
-docker logs digitalizacion-api
-```
+## 8. Proxy Host y HTTPS
 
-Abre `http://tudominio.ejemplo`. La web carga por Nginx. El registro, en este paso, va por HTTP.
+Abre Nginx Proxy Manager en el puerto 81, el mismo panel de tus otras webs. Añade un Proxy Host:
 
-## 7. HTTPS
+- Domain Names: tu dominio
+- Scheme: `http`
+- Forward Hostname / IP: `digitalizacion-web`
+- Forward Port: `80`
+- Block Common Exploits: activado
 
-Hazlo antes de que la clase entre con contraseñas.
+En la pestaña SSL, pide un certificado de Let's Encrypt y activa Force SSL. El registro A del dominio tiene que apuntar ya a la IP del VPS.
 
-```bash
-sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d tudominio.ejemplo
-```
-
-Certbot pide un email y reescribe Nginx para el puerto 443.
-
-Después cambia la cookie y recrea el contenedor. Un contenedor ya arrancado no relee el `.env`.
+Cuando el certificado esté activo, la cookie de sesión puede marcarse segura. Un contenedor ya arrancado no relee el `.env`.
 
 ```bash
 nano /var/www/digitalizacion/.env
 ```
 
-Pon `COOKIE_SECURE=1`. Luego:
+Pon `COOKIE_SECURE=1` y recrea solo el API:
 
 ```bash
 cd /var/www/digitalizacion
@@ -160,6 +171,7 @@ docker rm -f digitalizacion-api
 docker run -d \
   --name digitalizacion-api \
   --restart unless-stopped \
+  --network RED \
   -p 127.0.0.1:3000:3000 \
   --env-file .env \
   -v digitalizacion-data:/app/data \
@@ -168,7 +180,7 @@ docker run -d \
 
 A partir de aquí entra por `https://tudominio.ejemplo`. Si pones `COOKIE_SECURE=1` antes del certificado, el inicio de sesión deja de funcionar.
 
-## 8. Cortafuegos
+## 9. Cortafuegos
 
 Si usas `ufw`, deja abiertos SSH, HTTP y HTTPS. El 3000 se queda cerrado.
 
@@ -180,7 +192,7 @@ sudo ufw enable
 sudo ufw status
 ```
 
-## 9. Comprobar la cuenta
+## 10. Comprobar la cuenta
 
 1. Entra en `https://tudominio.ejemplo/registro`.
 2. Crea una cuenta con el `CODIGO_CLASE` del `.env` del VPS.
@@ -202,13 +214,14 @@ docker rm -f digitalizacion-api
 docker run -d \
   --name digitalizacion-api \
   --restart unless-stopped \
+  --network RED \
   -p 127.0.0.1:3000:3000 \
   --env-file .env \
   -v digitalizacion-data:/app/data \
   digitalizacion-api
 ```
 
-`git pull` no toca el `.env` ni el volumen. Si también cambiaste `despliegue/nginx.conf`, vuelve a copiarlo a `sites-available`, pasa `sudo nginx -t` y recarga Nginx.
+`git pull` no toca el `.env` ni el volumen. `digitalizacion-web` lee `dist` del disco, así que un `npm run build` nuevo se ve al recargar. Si cambias `despliegue/nginx-proxy.conf`, recrea ese contenedor con el mismo `docker run`.
 
 ## Copia de seguridad
 
