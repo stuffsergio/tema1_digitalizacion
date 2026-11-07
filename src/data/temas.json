@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "slug": "introduccion-como-funcionan-las-computadoras",
+    "titulo": "Tema 1.1: Introducción a Cómo Funcionan las Computadoras",
+    "videoOriginal": "Introducing How Computers Work",
+    "icono": "Sparkles",
+    "resumen": "Visión general de cómo la informática transforma el mundo y resumen de los pilares del temario.",
+    "archivoMd": "1-introduccion-como-funcionan-las-computadoras.md"
+  },
+  {
+    "id": 2,
+    "slug": "que-hace-a-una-computadora",
+    "titulo": "Tema 1.2: ¿Qué Hace que una Computadora sea una Computadora?",
+    "videoOriginal": "How Computers Work: What Makes a Computer, a Computer?",
+    "icono": "Cpu",
+    "resumen": "Evolución histórica y las 4 tareas fundamentales: Entrada, Almacenamiento, Procesamiento y Salida.",
+    "archivoMd": "2-que-hace-a-una-computadora.md"
+  },
+  {
+    "id": 3,
+    "slug": "binario-y-datos",
+    "titulo": "Tema 1.3: Sistema Binario y Representación de Datos",
+    "videoOriginal": "How Computers Work: Binary & Data",
+    "icono": "Binary",
+    "resumen": "Funcionamiento de los bits, conversión decimal-binario y representación de texto, imágenes y audio.",
+    "archivoMd": "3-binario-y-datos.md"
+  },
+  {
+    "id": 4,
+    "slug": "circuitos-y-logica",
+    "titulo": "Tema 1.4: Circuitos Eléctricos y Puertas Lógicas",
+    "videoOriginal": "How Computers Work: Circuits & Logic",
+    "icono": "Zap",
+    "resumen": "Puertas lógicas NOT y AND, circuitos sumadores de bits, miniaturización y velocidad de cálculo.",
+    "archivoMd": "4-circuitos-y-logica.md"
+  },
+  {
+    "id": 5,
+    "slug": "cpu-memoria-entrada-salida",
+    "titulo": "Tema 1.5: CPU, Memoria, Dispositivos de Entrada y Salida",
+    "videoOriginal": "How Computers Work: CPU, Memory, Input & Output",
+    "icono": "HardDrive",
+    "resumen": "Flujo de información paso a paso desde el teclado a la pantalla y escalado con múltiples CPUs.",
+    "archivoMd": "5-cpu-memoria-entrada-salida.md"
+  },
+  {
+    "id": 6,
+    "slug": "hardware-y-software",
+    "titulo": "Tema 1.6: Hardware y Software",
+    "videoOriginal": "How Computers Work: Hardware and Software",
+    "icono": "Terminal",
+    "resumen": "Interacción entre hardware y software, lenguajes de alto nivel y el rol del Sistema Operativo en la multitarea.",
+    "archivoMd": "6-hardware-y-software.md"
+  }
+]

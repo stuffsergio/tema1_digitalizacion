@@ -1,0 +1,506 @@
+[
+  {
+    "nivel": 1,
+    "nombreNivel": "Básico: Conceptos Generales y 4 Funciones",
+    "preguntas": [
+      {
+        "id": 1,
+        "pregunta": "¿Cuáles son las 4 tareas fundamentales que realiza toda computadora?",
+        "opciones": [
+          "Escribir, leer, borrar y apagar",
+          "Entrada (Input), Almacenamiento (Memory), Procesamiento (CPU) y Salida (Output)",
+          "Encender, conectar a internet, ejecutar programas y reiniciar",
+          "Calcular, dibujar, reproducir sonido y transmitir vídeo"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Toda computadora sin importar su época toma entradas, las almacena en memoria, las procesa con algoritmos en la CPU y genera salidas."
+      },
+      {
+        "id": 2,
+        "pregunta": "¿Qué es un bit en una computadora?",
+        "opciones": [
+          "Un chip de memoria de gran tamaño",
+          "La pieza de información más pequeña, representada por un estado encendido (1) o apagado (0)",
+          "Un lenguaje de programación de alto nivel",
+          "Un dispositivo de salida como una pantalla"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El bit es la unidad mínima de datos en un cable eléctrico (encendido=1, apagado=0)."
+      },
+      {
+        "id": 3,
+        "pregunta": "¿Cuál de los siguientes es un dispositivo de ENTRADA (Input)?",
+        "opciones": [
+          "Impresora 3D",
+          "Altavoces",
+          "Teclado",
+          "Pantalla"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "El teclado capta la interacción del usuario y envía la información en binario a la computadora."
+      },
+      {
+        "id": 4,
+        "pregunta": "¿Cuál de los siguientes es un dispositivo de SALIDA (Output)?",
+        "opciones": [
+          "Micrófono",
+          "Cámara",
+          "GPS",
+          "Pantalla"
+        ],
+        "respuestaCorrecta": 3,
+        "explicacion": "La pantalla convierte las señales binarias procesadas en luz y colores perceptibles."
+      },
+      {
+        "id": 5,
+        "pregunta": "¿Qué es el Hardware?",
+        "opciones": [
+          "Los programas y aplicaciones que se ejecutan en la máquina",
+          "Los componentes físicos y tangibles de la computadora (circuitos, chips, cables)",
+          "El sistema de códigos binarios que lee el usuario",
+          "Las reglas lógicas para resolver una ecuación"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El hardware abarca todo el equipamiento físico y electrónico del ordenador."
+      },
+      {
+        "id": 6,
+        "pregunta": "¿Qué es el Software?",
+        "opciones": [
+          "Los cables y circuitos de la tarjeta madre",
+          "Las piezas mecánicas como motores y palancas",
+          "Todos los programas o código que se ejecutan dentro de la máquina",
+          "El tipo de electricidad que alimenta al ordenador"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "El software es el conjunto de instrucciones y código que le indica al hardware qué hacer."
+      },
+      {
+        "id": 7,
+        "pregunta": "¿Cuál era la principal limitación de las computadoras electrónicas del siglo XX?",
+        "opciones": [
+          "No podían procesar números decimales",
+          "Ocupaban el tamaño de una habitación y podían tardar horas en resolver cálculos simples",
+          "Solo funcionaban con lenguajes de alto nivel",
+          "Solo tenían dispositivos de entrada táctiles"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Las computadoras primitivas eran enormes, lentas y usaban componentes eléctricos voluminosos."
+      },
+      {
+        "id": 8,
+        "pregunta": "¿Qué es un algoritmo?",
+        "opciones": [
+          "Un componente físico fabricado de silicio",
+          "Una serie de instrucciones paso a paso para manipular o transformar la información",
+          "Un dispositivo de salida que genera movimiento físico",
+          "La velocidad de la señal eléctrica en un cable"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Un algoritmo es la secuencia de pasos lógicos que sigue la CPU para transformar la entrada en salida."
+      },
+      {
+        "id": 9,
+        "pregunta": "¿Qué representan las señales de encendido y apagado en los circuitos?",
+        "opciones": [
+          "Verdadero/Falso, Sí/No, o 1/0",
+          "Letras mayúsculas y minúsculas únicamente",
+          "Posición decimal de base 10",
+          "Frecuencia de radio en gigahercios"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "La electricidad en un cable solo tiene dos estados (encendido/apagado), equivalente a Verdadero/Falso o 1/0."
+      },
+      {
+        "id": 10,
+        "pregunta": "¿Quién o qué hace que una computadora sea realmente útil e inteligente?",
+        "opciones": [
+          "El CPU por sí solo",
+          "Los cables y la velocidad de la electricidad",
+          "El ser humano que aprende a programar y define los problemas a resolver",
+          "La memoria RAM de gran tamaño"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "Como se destaca en los vídeos, lo único que hace útil a la computadora es el ser humano que crea el software."
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombreNivel": "Intermedio: Binario, Datos y Representación",
+    "preguntas": [
+      {
+        "id": 11,
+        "pregunta": "En el sistema binario, ¿cuál es el valor posicional de los dígitos de derecha a izquierda?",
+        "opciones": [
+          "Se multiplica por 10 en cada posición (1, 10, 100...)",
+          "Se multiplica por 2 en cada posición (1, 2, 4, 8, 16, 32...)",
+          "Se suma 2 en cada posición (1, 3, 5...)",
+          "Permanece constante en 1"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El sistema binario es en base 2, por lo que cada posición duplica el valor de la anterior."
+      },
+      {
+        "id": 12,
+        "pregunta": "¿Cómo se representa el número decimal 9 en código binario?",
+        "opciones": [
+          "1010",
+          "1001",
+          "0110",
+          "1100"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "1001 binario = (1*8) + (0*4) + (0*2) + (1*1) = 9."
+      },
+      {
+        "id": 13,
+        "pregunta": "Con un grupo de 8 cables (8 bits o 1 byte), ¿cuál es el rango de números enteros representable?",
+        "opciones": [
+          "De 0 a 100",
+          "De 0 a 255",
+          "De 0 a 1024",
+          "De 0 a 4 mil millones"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "8 bits permiten 2^8 (256) combinaciones, representando del 0 al 255."
+      },
+      {
+        "id": 14,
+        "pregunta": "Con 32 bits (32 cables), ¿cuál es el límite aproximado de números representables?",
+        "opciones": [
+          "Hasta 65.536",
+          "Hasta 1 millón",
+          "Hasta más de 4.000 millones (4 billones escala corta)",
+          "Infinito"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "2^32 equivale a 4.294.967.296 combinaciones posibles."
+      },
+      {
+        "id": 15,
+        "pregunta": "¿Cómo representa una computadora el texto escrito?",
+        "opciones": [
+          "Asignando un número a cada letra del alfabeto y guardándolo como secuencia binaria",
+          "Dibujando cada letra manualmente en la memoria RAM",
+          "Almacenando ondas de sonido de la voz del usuario",
+          "Utilizando un circuito diferente para cada palabra"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "Cada carácter se mapea a un número (ej. A=1 o códigos ASCII) y este número se convierte a binario."
+      },
+      {
+        "id": 16,
+        "pregunta": "¿De qué están compuestas las imágenes en pantalla y cómo se representan?",
+        "opciones": [
+          "De líneas continuas de electricidad",
+          "De diminutos puntos llamados píxeles, donde cada color se representa mediante números",
+          "De letras binarias superpuestas",
+          "De frecuencias de sonido convertidas en luz"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Las imágenes están divididas en píxeles, y cada píxel almacena valores numéricos que definen su color."
+      },
+      {
+        "id": 17,
+        "pregunta": "¿Cuántas imágenes por segundo emite un vídeo típico en una pantalla?",
+        "opciones": [
+          "10 imágenes/seg",
+          "30 imágenes/seg",
+          "100 imágenes/seg",
+          "1.000 imágenes/seg"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Un vídeo estándar emite 30 imágenes o fotogramas por segundo para generar la sensación de movimiento."
+      },
+      {
+        "id": 18,
+        "pregunta": "¿Cómo se representan los sonidos en binario dentro de un ordenador?",
+        "opciones": [
+          "Midiendo las vibraciones del aire en forma de ondas y convirtiendo sus puntos en números",
+          "Asignando una letra a cada nota musical",
+          "Guardando únicamente el volumen en un bit",
+          "Convirtiendo el sonido en imágenes de colores"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "El sonido se muestrea digitalmente midiendo la onda de vibración en puntos específicos y asignándoles valores numéricos."
+      },
+      {
+        "id": 19,
+        "pregunta": "¿Qué ventaja ofrece utilizar audio de 32 bits frente a uno de 8 bits?",
+        "opciones": [
+          "Ocupa menos espacio en memoria",
+          "Permite un rango más grande de números, logrando mayor precisión y calidad de sonido",
+          "Reduce la velocidad de procesamiento requerida",
+          "Elimina la necesidad de usar altavoces"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Más bits significan un mayor rango numérico para representar variaciones en la onda sonora."
+      },
+      {
+        "id": 20,
+        "pregunta": "Al presionar la tecla 'B' en el teclado, ¿qué ocurre inmediatamente?",
+        "opciones": [
+          "La pantalla se apaga para ahorrar energía",
+          "El teclado convierte la tecla en un número binario y lo envía a la computadora",
+          "El sistema operativo se reinicia",
+          "Se imprime un documento 3D"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El evento de pulsación es traducido por el hardware del teclado a su código binario correspondiente."
+      }
+    ]
+  },
+  {
+    "nivel": 3,
+    "nombreNivel": "Avanzado: Circuitos, Lógica y Componentes",
+    "preguntas": [
+      {
+        "id": 21,
+        "pregunta": "¿Qué función realiza la puerta lógica NO (NOT)?",
+        "opciones": [
+          "Devuelve 1 si ambas entradas son 1",
+          "Invierte la señal recibida: si entra 1 sale 0, y si entra 0 sale 1",
+          "Suma dos bits y genera un acarreo",
+          "Guarda el dato permanentemente en el disco"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La puerta NOT es un inversor de señal eléctrica."
+      },
+      {
+        "id": 22,
+        "pregunta": "¿Bajo qué condición la puerta lógica Y (AND) produce una salida de 1?",
+        "opciones": [
+          "Si al menos una de las entradas es 1",
+          "Solo si ambas señales de entrada son 1",
+          "Si ambas entradas son 0",
+          "Únicamente cuando se invierte la señal"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La condición AND exige que la entrada 1 Y la entrada 2 estén encendidas (1)."
+      },
+      {
+        "id": 23,
+        "pregunta": "En un circuito sumador de 1 bit, ¿cuál es el resultado de sumar 1 + 1 en binario?",
+        "opciones": [
+          "0 (binario 00)",
+          "1 (binario 01)",
+          "2 (representado como binario 10 con 2 bits)",
+          "11 (binario 11)"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "1+1=2, lo cual en binario requiere 2 dígitos de salida: 10."
+      },
+      {
+        "id": 24,
+        "pregunta": "¿Cuántos bits de entrada recibe un circuito sumador de 8 bits al sumar dos números (ej. 25 + 20)?",
+        "opciones": [
+          "2 bits",
+          "8 bits",
+          "16 bits (8 bits por cada número)",
+          "64 bits"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "Cada número consta de 8 bits, por lo que entran 8 + 8 = 16 señales eléctricas al circuito sumador."
+      },
+      {
+        "id": 25,
+        "pregunta": "¿Por qué las computadoras con circuitos más pequeños son también más rápidas?",
+        "opciones": [
+          "Porque usan baterías más grandes",
+          "Porque la distancia que debe recorrer la señal eléctrica es menor",
+          "Porque no requieren software para funcionar",
+          "Porque omiten el uso del sistema operativo"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "A menor tamaño físico, menor distancia recorrida por la electricidad, permitiendo billones de operaciones por segundo."
+      },
+      {
+        "id": 26,
+        "pregunta": "¿A qué velocidad aproximada se desplaza la electricidad en los circuitos?",
+        "opciones": [
+          "A la velocidad del sonido",
+          "A 100 km/h",
+          "Casi a la velocidad de la luz",
+          "A la velocidad de refresco de pantalla"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "La señal eléctrica viaja a velocidades cercanas a la velocidad de la luz."
+      },
+      {
+        "id": 27,
+        "pregunta": "¿Qué papel cumple la Memoria cuando la CPU procesa la pulsación de una tecla?",
+        "opciones": [
+          "Convierte las luces de la pantalla en electricidad",
+          "Almacena las instrucciones paso a paso que la CPU solicita para dibujar el píxel y guarda el resultado",
+          "Limpia los circuitos lógicos AND y NOT",
+          "Envía la información a internet"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La CPU lee instrucciones paso a paso de la memoria y guarda allí los píxeles calculados antes de enviarlos a pantalla."
+      },
+      {
+        "id": 28,
+        "pregunta": "¿Qué dispositivo convierte los píxeles calculados por la CPU en elementos visuales?",
+        "opciones": [
+          "El teclado",
+          "La pantalla",
+          "El micrófono",
+          "La tarjeta de sonido"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La pantalla es el dispositivo de salida que emite luz y color según los píxeles procesados."
+      },
+      {
+        "id": 29,
+        "pregunta": "¿Qué sucede cuando una tarea exige renderizar gráficos 3D o vídeo en HD?",
+        "opciones": [
+          "Se exigen múltiples CPUs y gigabytes de memoria para procesar el alto volumen de datos",
+          "La computadora convierte los datos en señales mecánicas",
+          "Los circuitos NOT dejan de funcionar",
+          "Se escribe todo el código en binario manualmente"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "A mayor complejidad de entrada y salida, mayor es el poder de procesamiento y almacenamiento requeridos."
+      },
+      {
+        "id": 30,
+        "pregunta": "¿Qué diferencia a los circuitos antiguos de los circuitos microscópicos modernos?",
+        "opciones": [
+          "Un sumador de 8 bits antiguo ocupaba el tamaño de un refrigerador; hoy caben en un microchip microscópico",
+          "Los antiguos usaban luz y los modernos usan agua",
+          "Los antiguos eran de software y los modernos de madera",
+          "No existe ninguna diferencia"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "La miniaturización ha transformado circuitos del tamaño de electrodomésticos en componentes nanométricos ultrarrápidos."
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombreNivel": "Experto: Hardware, Software, CPU y Sistema Operativo",
+    "preguntas": [
+      {
+        "id": 31,
+        "pregunta": "¿Qué es el CPU (Unidad Central de Procesamiento)?",
+        "opciones": [
+          "El dispositivo que captura las imágenes de la cámara",
+          "El chip maestro que controla las otras partes de la computadora y ejecuta los comandos almacenados",
+          "El cable de alimentación eléctrica",
+          "La interfaz gráfica del usuario"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El CPU es el chip principal encargado de coordinar los componentes y ejecutar los programas."
+      },
+      {
+        "id": 32,
+        "pregunta": "¿Cómo sabe la CPU qué subcircuito interno utilizar en cada momento?",
+        "opciones": [
+          "Adivina según el color de los cables",
+          "Recibe comandos binarios secuenciales (como 'suma' o 'guarda') que activan circuitos específicos",
+          "La pantalla se lo indica con destellos",
+          "Funciona de manera aleatoria"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Cada comando en código binario le indica a la CPU exactamente qué circuito utilizar."
+      },
+      {
+        "id": 33,
+        "pregunta": "¿Por qué los programadores no escriben software en código binario en la actualidad?",
+        "opciones": [
+          "Porque los procesadores ya no leen binario",
+          "Porque escribir en binario llevaría demasiado tiempo; se emplean lenguajes de alto nivel cercanos al inglés",
+          "Porque el binario está prohibido",
+          "Porque la RAM no guarda ceros"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Los lenguajes de alto nivel permiten expresar ideas complejas que luego se compilan a binario."
+      },
+      {
+        "id": 34,
+        "pregunta": "¿Qué ocurre con un comando de alto nivel (ej. dibujar un rectángulo) al ejecutarse?",
+        "opciones": [
+          "Se envía directamente al monitor sin procesar",
+          "Se traduce en cientos o miles de comandos binarios más simples para la CPU",
+          "Se almacena sin traducirse",
+          "Se convierte en ondas sonoras"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Los comandos de alto nivel son traducidos a miles de instrucciones máquina básicas que la CPU puede ejecutar."
+      },
+      {
+        "id": 35,
+        "pregunta": "¿Cuál es la función principal del Sistema Operativo (SO)?",
+        "opciones": [
+          "Es el programa maestro que gestiona cómo el software utiliza el hardware",
+          "Fabricar chips de silicio",
+          "Convertir la pantalla táctil en un teclado físico",
+          "Limpiar el polvo interno del ordenador"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "El SO es el programa maestro que arbitra y administra los recursos de hardware para todas las aplicaciones."
+      },
+      {
+        "id": 36,
+        "pregunta": "¿Cómo logra el Sistema Operativo la ilusión de ejecutar múltiples programas a la vez (multitarea)?",
+        "opciones": [
+          "Duplicando físicamente la CPU",
+          "Conmutando y cambiando rápidamente entre programas compartiendo el uso de la CPU en fracciones de segundo",
+          "Ejecutando un programa por día",
+          "Apagando el software en segundo plano"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El Sistema Operativo distribuye el tiempo de la CPU alternando entre tareas a altísima velocidad."
+      },
+      {
+        "id": 37,
+        "pregunta": "¿Cuáles de las siguientes son competencias directas del Sistema Operativo?",
+        "opciones": [
+          "Cargar programas a memoria, asignar tiempo de CPU y gestionar el acceso a dispositivos de E/S",
+          "Encender las luces de la habitación",
+          "Traducir idiomas humanos sin usar software",
+          "Soldar componentes electrónicos"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "El SO gestiona la memoria, la planificación de procesos en la CPU y los controladores de Entrada/Salida."
+      },
+      {
+        "id": 38,
+        "pregunta": "¿Qué constituye un programa de computadora a nivel de procesador?",
+        "opciones": [
+          "Una secuencia ordenada de comandos binarios guardados en memoria que la CPU ejecuta uno tras otro",
+          "El armazón físico de plástico",
+          "Un conjunto de luces parpadeantes",
+          "Una conexión de fibra óptica"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "Un programa es una lista ordenada de instrucciones binarias almacenadas en memoria que el procesador lee secuencialmente."
+      },
+      {
+        "id": 39,
+        "pregunta": "En una red de computadoras (Internet), ¿cómo se conectan la entrada y la salida?",
+        "opciones": [
+          "La salida de una computadora se convierte en la entrada de otra, y viceversa",
+          "Ambas computadoras desactivan la memoria RAM",
+          "Las CPUs se fusionan en un único circuito físico",
+          "Se borran todos los archivos de ambas máquinas"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "La información transmitida por el Output de un nodo viaja por red para ingresar como Input en otro nodo."
+      },
+      {
+        "id": 40,
+        "pregunta": "¿Qué función cumplen los sensores en sistemas empotrados (como en un coche o dron)?",
+        "opciones": [
+          "Son dispositivos de entrada que captan datos del entorno físico y los convierten en código binario para procesamiento",
+          "Son piezas puramente decorativas",
+          "Son lenguajes de programación de alto nivel",
+          "Son sistemas operativos independientes"
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "Los sensores convierten magnitudes físicas (temperatura, velocidad, proximidad) en señales eléctricas/binarias de entrada."
+      }
+    ]
+  }
+]
