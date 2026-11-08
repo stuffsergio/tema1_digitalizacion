@@ -1,0 +1,506 @@
+[
+  {
+    "nivel": 1,
+    "nombreNivel": "Básico: Fundamentos de Internet y capa física",
+    "preguntas": [
+      {
+        "id": 1,
+        "pregunta": "¿Cuál fue el proyecto de investigación precursor de Internet en los años 70?",
+        "opciones": [
+          "Ethernet",
+          "ARPANET",
+          "WWW",
+          "NSFNet"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "ARPANET, en los años 70, es el antecedente directo de Internet."
+      },
+      {
+        "id": 2,
+        "pregunta": "¿Quiénes fueron los principales pioneros en el diseño del protocolo de Internet y su arquitectura?",
+        "opciones": [
+          "Bill Gates y Steve Jobs",
+          "Vint Cerf y Bob Kahn",
+          "Tim Berners-Lee y Marc Andreessen",
+          "Larry Page y Sergey Brin"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Vint Cerf y Bob Kahn diseñaron la arquitectura del protocolo de Internet."
+      },
+      {
+        "id": 3,
+        "pregunta": "¿Cuál es la principal característica de la arquitectura de Internet?",
+        "opciones": [
+          "Está centralizada en un superordenador del gobierno.",
+          "Es una red distribuida de redes independientes, sin control central.",
+          "Depende exclusivamente de un satélite principal.",
+          "Es propiedad de una única corporación."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Internet es una red de redes, sin un dueño ni un centro único."
+      },
+      {
+        "id": 4,
+        "pregunta": "¿Cuántos bits componen un byte?",
+        "opciones": [
+          "4 bits",
+          "8 bits",
+          "16 bits",
+          "32 bits"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Un byte son 8 bits."
+      },
+      {
+        "id": 5,
+        "pregunta": "¿Qué medio físico transmite información binaria mediante luz?",
+        "opciones": [
+          "Cable de par trenzado Ethernet",
+          "Cable coaxial",
+          "Cable de fibra óptica",
+          "Antena Wi-Fi"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "La fibra óptica envía los bits como pulsos de luz."
+      },
+      {
+        "id": 6,
+        "pregunta": "¿Qué mide el tiempo que tarda un bit en ir del emisor al destino?",
+        "opciones": [
+          "Ancho de banda",
+          "Latencia",
+          "Frecuencia de muestreo",
+          "Rendimiento de la CPU"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Ese tiempo de viaje es la latencia. El ancho de banda es cuánto cabe."
+      },
+      {
+        "id": 7,
+        "pregunta": "¿Qué medio sufre interferencias y se degrada a pocas decenas de metros?",
+        "opciones": [
+          "Fibra óptica submarina",
+          "Cable de cobre (Ethernet)",
+          "Láser satelital",
+          "Ondas de radio de alta frecuencia"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La señal eléctrica del cobre se degrada enseguida."
+      },
+      {
+        "id": 8,
+        "pregunta": "Aproximadamente, ¿cuántos bytes contiene un megabyte?",
+        "opciones": [
+          "1.000 bytes",
+          "1.000.000 bytes",
+          "1.000.000.000 bytes",
+          "800 bytes"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "En esta cuenta, un megabyte son un millón de bytes."
+      },
+      {
+        "id": 9,
+        "pregunta": "¿Por qué los datos Wi-Fi acaban yendo por fibra o cobre?",
+        "opciones": [
+          "Porque la señal de radio tiene poco alcance y se distorsiona.",
+          "Porque el Wi-Fi no usa código binario.",
+          "Porque el Wi-Fi solo funciona en interiores.",
+          "Por una restricción legal."
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "La radio no llega lejos ni limpia. El tramo largo va por cable."
+      },
+      {
+        "id": 10,
+        "pregunta": "¿Para qué sirve un reloj acordado en un cable?",
+        "opciones": [
+          "Medir la hora del servidor.",
+          "Contar cuántos ceros o unos seguidos se están enviando.",
+          "Enfriar los circuitos.",
+          "Acelerar la tarjeta gráfica."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Sin un tic común, el receptor no distingue varios ceros seguidos."
+      }
+    ]
+  },
+  {
+    "nivel": 2,
+    "nombreNivel": "Intermedio: IP, DNS y TCP/IP",
+    "preguntas": [
+      {
+        "id": 11,
+        "pregunta": "¿Cuántos bits forman una dirección IPv4?",
+        "opciones": [
+          "16 bits",
+          "32 bits",
+          "64 bits",
+          "128 bits"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "IPv4 usa 32 bits, cuatro números del 0 al 255."
+      },
+      {
+        "id": 12,
+        "pregunta": "¿Cuántas direcciones permite IPv6, de 128 bits?",
+        "opciones": [
+          "4.300 millones",
+          "10.000 millones",
+          "Unos 340 sextillones, 3,4 × 10 elevado a 38",
+          "256 billones"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "128 bits dan una cantidad de direcciones que no se agota en la práctica."
+      },
+      {
+        "id": 13,
+        "pregunta": "¿Cuál es la función principal del DNS?",
+        "opciones": [
+          "Cifrar el correo.",
+          "Traducir un nombre de dominio a una dirección IP.",
+          "Comprimir vídeo.",
+          "Controlar el ventilador del procesador."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El DNS pasa de code.org a la IP del servidor."
+      },
+      {
+        "id": 14,
+        "pregunta": "¿Qué ocurre en un ataque de DNS spoofing?",
+        "opciones": [
+          "Se corta un cable submarino.",
+          "Se altera la caché DNS para mandar un nombre legítimo a una IP maliciosa.",
+          "Se borra la RAM del servidor.",
+          "Se apaga el Wi-Fi de la ciudad."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El nombre sigue pareciendo bueno, pero la dirección apunta a otro sitio."
+      },
+      {
+        "id": 15,
+        "pregunta": "¿Cómo viaja un archivo grande por Internet?",
+        "opciones": [
+          "Como un único bloque.",
+          "Partido en paquetes.",
+          "Solo por correo electrónico.",
+          "En formato analógico."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La canción o el vídeo se parte en miles de paquetes."
+      },
+      {
+        "id": 16,
+        "pregunta": "¿Qué dispositivo elige la ruta de los paquetes?",
+        "opciones": [
+          "Módem analógico",
+          "Enrutador (router)",
+          "Monitor",
+          "Teclado"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El router es el que decide el siguiente salto."
+      },
+      {
+        "id": 17,
+        "pregunta": "¿Qué significa que el enrutamiento tenga tolerancia a fallos?",
+        "opciones": [
+          "Que ningún cable puede romperse.",
+          "Que si un camino falla, los paquetes toman otro.",
+          "Que hay que reiniciar el router cada hora.",
+          "Que las contraseñas no necesitan números."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Hay más de un camino. La red sigue si uno se cae."
+      },
+      {
+        "id": 18,
+        "pregunta": "¿Qué protocolo asegura que los paquetes lleguen y los reordena?",
+        "opciones": [
+          "HTTP",
+          "TCP",
+          "DNS",
+          "UDP"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "TCP numera, reordena y completa. UDP no garantiza la entrega."
+      },
+      {
+        "id": 19,
+        "pregunta": "¿Qué hace TCP si se pierde un paquete?",
+        "opciones": [
+          "Cancela la navegación.",
+          "Pide al emisor que lo reenvíe.",
+          "Lo sustituye por ceros al azar.",
+          "Muestra un error irrecuperable."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El receptor avisa y el emisor repite solo ese paquete."
+      },
+      {
+        "id": 20,
+        "pregunta": "¿Qué lleva la cabecera de un paquete IP?",
+        "opciones": [
+          "El código fuente del sistema operativo.",
+          "La IP de origen, la IP de destino y el número de secuencia.",
+          "El domicilio físico del usuario.",
+          "El historial de navegación."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Con origen, destino y número, el paquete sabe a dónde va y en qué orden."
+      }
+    ]
+  },
+  {
+    "nivel": 3,
+    "nombreNivel": "Avanzado: HTTP, HTML y llave pública",
+    "preguntas": [
+      {
+        "id": 21,
+        "pregunta": "¿Qué petición HTTP pide una página al servidor?",
+        "opciones": [
+          "POST",
+          "GET",
+          "SET",
+          "PUSH"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "GET solicita el documento. No envía el cuerpo de un formulario."
+      },
+      {
+        "id": 22,
+        "pregunta": "¿Qué método HTTP envía los datos de un formulario?",
+        "opciones": [
+          "GET",
+          "POST",
+          "FETCH",
+          "CONNECT"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "POST lleva en el cuerpo datos como el usuario y la contraseña."
+      },
+      {
+        "id": 23,
+        "pregunta": "¿Para qué sirve una cookie en HTTP?",
+        "opciones": [
+          "Acelerar el procesador.",
+          "Guardar un identificador de sesión para recordar al usuario.",
+          "Bloquear anuncios.",
+          "Hacer copias de las imágenes."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "HTTP no recuerda por sí solo. La cookie identifica la sesión."
+      },
+      {
+        "id": 24,
+        "pregunta": "¿Por qué HTTP, sin la S, es inseguro en una red pública?",
+        "opciones": [
+          "Porque los servidores se apagan de noche.",
+          "Porque viaja en texto claro y se puede espiar o cambiar.",
+          "Porque solo funciona en ordenadores de sobremesa.",
+          "Porque limita la velocidad a 1 Mbps."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Cualquiera en el camino puede leer ese texto."
+      },
+      {
+        "id": 25,
+        "pregunta": "¿Qué protocolos cifran HTTPS?",
+        "opciones": [
+          "TCP e IP",
+          "SSL y TLS",
+          "DNS y DHCP",
+          "FTP y SMTP"
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "SSL y TLS son la capa que cifra la conversación HTTP."
+      },
+      {
+        "id": 26,
+        "pregunta": "¿Quién firma el certificado que identifica un sitio HTTPS?",
+        "opciones": [
+          "El propio usuario.",
+          "Una autoridad certificadora de confianza.",
+          "El proveedor de Internet, de forma anónima.",
+          "El fabricante de la tarjeta gráfica."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La autoridad certificadora avala que esa llave pertenece a ese sitio."
+      },
+      {
+        "id": 27,
+        "pregunta": "¿Cuál es el límite del cifrado de César?",
+        "opciones": [
+          "Usa demasiada memoria.",
+          "Solo hay 26 claves y se prueban en minutos.",
+          "Necesita Internet.",
+          "Solo cifra imágenes."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Probar las 26 letras basta para leer el mensaje."
+      },
+      {
+        "id": 28,
+        "pregunta": "En la llave pública, ¿para qué sirve la llave pública?",
+        "opciones": [
+          "Para abrir los mensajes recibidos.",
+          "Para cifrar, de modo que solo la llave privada pueda abrir.",
+          "Para borrar el historial.",
+          "Para formatear el disco."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La pública cierra. La privada, que no se comparte, abre."
+      },
+      {
+        "id": 29,
+        "pregunta": "¿Qué ventaja tiene el cifrado asimétrico en Internet?",
+        "opciones": [
+          "Es mil veces más rápido.",
+          "Permite un secreto sin haber compartido antes una clave.",
+          "No usa matemáticas.",
+          "No usa binario."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "No hace falta quedar antes en un secreto común."
+      },
+      {
+        "id": 30,
+        "pregunta": "¿Cuántas combinaciones tiene una clave de 256 bits?",
+        "opciones": [
+          "256",
+          "10.000 millones",
+          "2 elevado a 256",
+          "Un millón por segundo"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "Probar 2 elevado a 256 no cabe en el tiempo de una supercomputadora."
+      }
+    ]
+  },
+  {
+    "nivel": 4,
+    "nombreNivel": "Experto: Ciberseguridad y búsqueda",
+    "preguntas": [
+      {
+        "id": 31,
+        "pregunta": "¿Qué parte de los ciberataques sale de un error humano, no del programa?",
+        "opciones": [
+          "10 %",
+          "50 %",
+          "90 %",
+          "100 %"
+        ],
+        "respuestaCorrecta": 2,
+        "explicacion": "El vídeo cifra en torno al 90 % los ataques que aprovechan a una persona."
+      },
+      {
+        "id": 32,
+        "pregunta": "¿Qué es una botnet?",
+        "opciones": [
+          "Un cable submarino.",
+          "Una red de ordenadores infectados y controlados a distancia.",
+          "Un buscador científico.",
+          "Un lenguaje de programación."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El atacante manda sobre esas máquinas sin que el dueño lo note."
+      },
+      {
+        "id": 33,
+        "pregunta": "¿En qué consiste un ataque DDoS?",
+        "opciones": [
+          "En robar el Wi-Fi de un vecino.",
+          "En inundar un servidor con peticiones desde una botnet hasta tumbarlo.",
+          "En mandar virus de uno en uno.",
+          "En cambiar la hora del servidor."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "No hace falta romper el programa: basta con saturarlo."
+      },
+      {
+        "id": 34,
+        "pregunta": "¿Qué es el phishing?",
+        "opciones": [
+          "El rastreo de las arañas de un buscador.",
+          "Un correo o una web falsa para que reveles una contraseña.",
+          "Medir el ancho de banda.",
+          "Un algoritmo de ordenación."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El engaño imita a alguien de confianza para que entregues el dato."
+      },
+      {
+        "id": 35,
+        "pregunta": "¿Cómo recogen páginas los buscadores?",
+        "opciones": [
+          "Llamando por teléfono.",
+          "Con programas, las arañas, que siguen enlaces sin parar.",
+          "Viendo la televisión.",
+          "Escaneando el disco del usuario."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La araña entra por un enlace y sigue los que encuentra."
+      },
+      {
+        "id": 36,
+        "pregunta": "¿Qué es el índice de un buscador?",
+        "opciones": [
+          "Los marcadores de Chrome.",
+          "Una base ya preparada para responder en milisegundos.",
+          "El catálogo de piezas de hardware.",
+          "El manual del sistema operativo."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "La respuesta sale del índice, no de un recorrido en directo."
+      },
+      {
+        "id": 37,
+        "pregunta": "¿Qué medía el PageRank de Larry Page?",
+        "opciones": [
+          "La velocidad de un servidor.",
+          "La relevancia según cuántas webs, y cuáles, enlazan a una página.",
+          "El precio del dominio.",
+          "El peso del archivo HTML."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "Un enlace desde un sitio importante cuenta más que uno cualquiera."
+      },
+      {
+        "id": 38,
+        "pregunta": "¿Para qué usan aprendizaje automático los buscadores actuales?",
+        "opciones": [
+          "Para reescribir las webs ajenas.",
+          "Para entender la intención de las palabras buscadas.",
+          "Para quitar los cables de red.",
+          "Para agrandar el monitor."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El modelo intenta saber qué se quiere decir, no solo qué letras coinciden."
+      },
+      {
+        "id": 39,
+        "pregunta": "¿Por qué no se rastrea toda la web en el momento de cada búsqueda?",
+        "opciones": [
+          "Porque hay más de mil millones de sitios y la respuesta tardaría demasiado.",
+          "Porque la ley prohíbe rastrear de noche.",
+          "Porque los servidores se rompen al buscar.",
+          "Porque la luz viaja despacio."
+        ],
+        "respuestaCorrecta": 0,
+        "explicacion": "Recorrer la web entera en ese instante no daría una respuesta a tiempo."
+      },
+      {
+        "id": 40,
+        "pregunta": "¿Qué hacen los ejércitos cibernéticos de los estados?",
+        "opciones": [
+          "Enseñar a programar en las escuelas.",
+          "Proteger e interferir en infraestructuras como energía, agua o finanzas.",
+          "Diseñar tarjetas gráficas.",
+          "Vender paquetes de Internet."
+        ],
+        "respuestaCorrecta": 1,
+        "explicacion": "El objetivo son los sistemas de los que depende un país."
+      }
+    ]
+  }
+]

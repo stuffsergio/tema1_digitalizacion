@@ -52,5 +52,77 @@
     "icono": "Terminal",
     "resumen": "Interacción entre hardware y software, lenguajes de alto nivel y el rol del Sistema Operativo en la multitarea.",
     "archivoMd": "6-hardware-y-software.md"
+  },
+  {
+    "id": 7,
+    "slug": "que-es-internet",
+    "titulo": "Tema 2.1: ¿Qué es Internet?",
+    "videoOriginal": "The Internet: How the Internet Works",
+    "icono": "Globe",
+    "resumen": "Origen en ARPANET y una red distribuida de redes, sin un control central.",
+    "archivoMd": "7-que-es-internet.md"
+  },
+  {
+    "id": 8,
+    "slug": "cables-fibra-y-wifi",
+    "titulo": "Tema 2.2: Cables, fibra y Wi-Fi",
+    "videoOriginal": "The Internet: Wires, Cables & WiFi",
+    "icono": "Wifi",
+    "resumen": "Cobre, fibra óptica y radio: bits, bytes, ancho de banda y latencia.",
+    "archivoMd": "8-cables-fibra-y-wifi.md"
+  },
+  {
+    "id": 9,
+    "slug": "direcciones-ip-y-dns",
+    "titulo": "Tema 2.3: Direcciones IP y DNS",
+    "videoOriginal": "The Internet: IP Addresses & DNS",
+    "icono": "Server",
+    "resumen": "IPv4, IPv6 y el sistema que traduce un nombre de dominio a una dirección IP.",
+    "archivoMd": "9-direcciones-ip-y-dns.md"
+  },
+  {
+    "id": 10,
+    "slug": "paquetes-enrutamiento-y-confiabilidad",
+    "titulo": "Tema 2.4: Paquetes, enrutamiento y confiabilidad",
+    "videoOriginal": "The Internet: Packets, Routing & Reliability",
+    "icono": "Route",
+    "resumen": "Los archivos viajan en paquetes. El router elige camino y TCP pide lo que falte.",
+    "archivoMd": "10-paquetes-enrutamiento-y-confiabilidad.md"
+  },
+  {
+    "id": 11,
+    "slug": "http-y-html",
+    "titulo": "Tema 2.5: HTTP y HTML",
+    "videoOriginal": "The Internet: HTTP & HTML",
+    "icono": "FileCode",
+    "resumen": "GET y POST, cookies de sesión, HTML y la capa segura SSL/TLS.",
+    "archivoMd": "11-http-y-html.md"
+  },
+  {
+    "id": 12,
+    "slug": "encriptacion-y-llaves-publicas",
+    "titulo": "Tema 2.6: Cifrado y llaves públicas",
+    "videoOriginal": "The Internet: Encryption & Public Keys",
+    "icono": "KeyRound",
+    "resumen": "Del cifrado de César a la llave pública, que cifra sin compartir un secreto antes.",
+    "archivoMd": "12-encriptacion-y-llaves-publicas.md"
+  },
+  {
+    "id": 13,
+    "slug": "ciberseguridad-y-crimen",
+    "titulo": "Tema 2.7: Ciberseguridad y crimen",
+    "videoOriginal": "The Internet: Cybersecurity & Crime",
+    "icono": "Shield",
+    "resumen": "Botnets, DDoS y phishing. La mayoría de los ataques aprovechan un error humano.",
+    "archivoMd": "13-ciberseguridad-y-crimen.md"
+  },
+  {
+    "id": 14,
+    "slug": "como-funciona-la-busqueda",
+    "titulo": "Tema 2.8: Cómo funciona la búsqueda",
+    "videoOriginal": "The Internet: How Search Works",
+    "icono": "Search",
+    "resumen": "Arañas, índice y PageRank. La búsqueda no recorre la web entera en el momento.",
+    "archivoMd": "14-como-funciona-la-busqueda.md"
   }
 ]

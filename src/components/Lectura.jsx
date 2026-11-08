@@ -13,7 +13,7 @@ export function partirMarkdown(md) {
   const sinTitulo = md.replace(/^#\s+.+(?:\r?\n)+/, "");
   const [cuerpo, resto] = sinTitulo.split(/\r?\n---\r?\n/);
   const fuente = (resto || "").replace(/\*/g, "").trim();
-  return { cuerpo: cuerpo.trim(), fuente };
+  return { cuerpo: cuerpo.trim(), fuente: fuente.startsWith(">") ? "" : fuente };
 }
 
 export function Lectura({ markdown }) {

@@ -1,9 +1,10 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 import { Barra } from "../components/Barra.jsx";
 import { useProgreso } from "../context/Progreso.jsx";
-import banco from "../data/preguntas.json";
+import banco1 from "../data/preguntas.json";
+import banco2 from "../data/preguntas-tema2.json";
 
 const letras = ["A", "B", "C", "D"];
 
@@ -14,7 +15,39 @@ function medalla(puntos) {
   return "Sin medalla";
 }
 
+export function ElegirCuestionario() {
+  useEffect(() => {
+    document.title = "Cuestionario · Digitalización";
+  }, []);
+
+  return (
+    <div className="wrap py-10 sm:py-14">
+      <p className="text-[0.72rem] tracking-[0.16em] text-ink/60 uppercase">Evaluación</p>
+      <h1 className="mt-3 max-w-[16ch] text-[clamp(2.2rem,5vw,3.8rem)]">Elige la parte</h1>
+      <p className="mt-4 max-w-[62ch] text-[1.05rem] leading-relaxed">
+        Cada parte tiene cuatro niveles de diez preguntas. El ranking de la clase usa solo la parte 1.
+      </p>
+      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+        <Link className="tema-card" to="/cuestionario/tema1">
+          <span className="bg-mark px-1.5 py-0.5 text-[0.85rem]">Parte 1</span>
+          <span className="text-[1.35rem] leading-tight">Cómo funcionan los ordenadores</span>
+        </Link>
+        <Link className="tema-card" to="/cuestionario/tema2">
+          <span className="bg-mark px-1.5 py-0.5 text-[0.85rem]">Parte 2</span>
+          <span className="text-[1.35rem] leading-tight">Redes e Internet</span>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export function Cuestionario() {
+  const { parte: parteParam } = useParams();
+  const parteValida = parteParam === "tema1" || parteParam === "tema2";
+  const parte = parteParam === "tema2" ? 2 : 1;
+  const banco = parte === 2 ? banco2 : banco1;
+  const desplazamiento = parte === 2 ? 4 : 0;
+  const ruta = `/cuestionario/tema${parte}`;
   const reduce = useReducedMotion();
   const ancla = useRef(null);
   const guardado = useRef(false);
@@ -32,8 +65,8 @@ export function Cuestionario() {
   const actual = preguntas[indice];
 
   useEffect(() => {
-    document.title = "Cuestionario · Digitalización";
-  }, []);
+    document.title = `Cuestionario · Parte ${parte} · Digitalización`;
+  }, [parte]);
 
   useEffect(() => {
     if (fase === "mapa") return;
@@ -41,7 +74,7 @@ export function Cuestionario() {
   }, [fase, indice]);
 
   function empezar(numero) {
-    if (!desbloqueado(numero)) return;
+    if (!desbloqueado(numero + desplazamiento)) return;
     guardado.current = false;
     setNivel(numero);
     setIndice(0);
@@ -67,7 +100,7 @@ export function Cuestionario() {
       if (!guardado.current) {
         guardado.current = true;
         try {
-          await registrarResultado(nivel, puntos);
+          await registrarResultado(nivel + desplazamiento, puntos);
         } catch (fallo) {
           guardado.current = false;
           setErrorGuardado(fallo.message);
@@ -92,22 +125,24 @@ export function Cuestionario() {
   const transicion = { duration: reduce ? 0.01 : 0.24, ease: [0.23, 1, 0.32, 1] };
   const respondidas = historial.length + (elegida !== null ? 1 : 0);
 
+  if (!parteValida) return <Navigate to="/cuestionario" replace />;
+
   if (cargando) return <p className="wrap py-16">Cargando.</p>;
 
   if (!usuario) {
     return (
       <div className="wrap py-10 sm:py-14">
-        <p className="text-[0.72rem] tracking-[0.16em] text-ink/60 uppercase">Tema 1 · Evaluación</p>
+        <p className="text-[0.72rem] tracking-[0.16em] text-ink/60 uppercase">Parte {parte} · Evaluación</p>
         <h1 className="mt-3 max-w-[16ch] text-[clamp(2.2rem,5vw,3.8rem)]">El cuestionario va con tu cuenta</h1>
         <p className="mt-4 max-w-[62ch] text-[1.05rem] leading-relaxed">
           Cada intento se guarda en tu perfil. El ranking de la clase usa la nota del primer
           intento de cada nivel, así que conviene leer las lecciones antes de empezar.
         </p>
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-          <Link className="btn w-full sm:w-auto" to="/entrar?siguiente=/cuestionario">
+          <Link className="btn w-full sm:w-auto" to={`/entrar?siguiente=${ruta}`}>
             Entrar
           </Link>
-          <Link className="btn btn-ghost w-full sm:w-auto" to="/registro?siguiente=/cuestionario">
+          <Link className="btn btn-ghost w-full sm:w-auto" to={`/registro?siguiente=${ruta}`}>
             Crear una cuenta
           </Link>
         </div>
@@ -119,6 +154,9 @@ export function Cuestionario() {
     <div className="wrap py-10 sm:py-14" ref={ancla}>
       {fase === "mapa" ? (
         <Mapa
+          banco={banco}
+          parte={parte}
+          desplazamiento={desplazamiento}
           mejores={mejores}
           desbloqueado={desbloqueado}
           onEmpezar={empezar}
@@ -208,10 +246,12 @@ export function Cuestionario() {
           preguntas={preguntas}
           historial={historial}
           aciertos={aciertos}
-          mejor={Number(mejores[nivel] ?? aciertos)}
+          mejor={Number(mejores[nivel + desplazamiento] ?? aciertos)}
           onReintentar={() => empezar(nivel)}
           onSiguiente={
-            nivel < 4 && Number(mejores[nivel] ?? 0) >= 7 ? () => empezar(nivel + 1) : null
+            nivel < 4 && Number(mejores[nivel + desplazamiento] ?? 0) >= 7
+              ? () => empezar(nivel + 1)
+              : null
           }
           onMapa={salir}
         />
@@ -220,10 +260,10 @@ export function Cuestionario() {
   );
 }
 
-function Mapa({ mejores, desbloqueado, onEmpezar, onReiniciar }) {
+function Mapa({ banco, parte, desplazamiento, mejores, desbloqueado, onEmpezar, onReiniciar }) {
   return (
     <div>
-      <p className="text-[0.72rem] tracking-[0.16em] text-ink/60 uppercase">Tema 1 · Evaluación</p>
+      <p className="text-[0.72rem] tracking-[0.16em] text-ink/60 uppercase">Parte {parte} · Evaluación</p>
       <h1 className="mt-3 max-w-[16ch] text-[clamp(2.2rem,5vw,3.8rem)]">Cuestionario por niveles</h1>
       <p className="mt-4 max-w-[62ch] text-[1.05rem] leading-relaxed">
         Diez preguntas por nivel. Con 7 aciertos se abre el siguiente. En este navegador se guarda
@@ -231,8 +271,9 @@ function Mapa({ mejores, desbloqueado, onEmpezar, onReiniciar }) {
       </p>
       <ol className="mt-8 border-t border-line">
         {banco.map((item) => {
-          const abierto = desbloqueado(item.nivel);
-          const mejor = mejores[item.nivel];
+          const almacenado = item.nivel + desplazamiento;
+          const abierto = desbloqueado(almacenado);
+          const mejor = mejores[almacenado];
           const superado = Number(mejor ?? 0) >= 7;
           return (
             <li
@@ -267,20 +308,22 @@ function Mapa({ mejores, desbloqueado, onEmpezar, onReiniciar }) {
         })}
       </ol>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <Link className="underline decoration-mark decoration-2 underline-offset-[0.22em]" to="/">
-          Volver al temario
+        <Link className="underline decoration-mark decoration-2 underline-offset-[0.22em]" to={`/tema${parte}`}>
+          Volver a la parte {parte}
         </Link>
-        <button
-          type="button"
-          className="btn btn-ghost w-full sm:w-auto"
-          onClick={() => {
-            if (window.confirm("Se borrarán las lecciones leídas y las notas para desbloquear niveles. Los intentos que ya cuentan en el ranking se conservan.")) {
-              onReiniciar();
-            }
-          }}
-        >
-          Borrar el progreso
-        </button>
+        {parte === 1 ? (
+          <button
+            type="button"
+            className="btn btn-ghost w-full sm:w-auto"
+            onClick={() => {
+              if (window.confirm("Se borrarán las lecciones leídas y las notas de las dos partes. Los intentos que ya cuentan en el ranking se conservan.")) {
+                onReiniciar();
+              }
+            }}
+          >
+            Borrar el progreso
+          </button>
+        ) : null}
       </div>
     </div>
   );

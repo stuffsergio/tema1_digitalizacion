@@ -170,13 +170,13 @@ function sesionActual(req) {
 
 function normalizarLeidos(lista) {
   if (!Array.isArray(lista)) return [];
-  return [...new Set(lista.map(Number).filter((n) => Number.isInteger(n) && n >= 1 && n <= 6))];
+  return [...new Set(lista.map(Number).filter((n) => Number.isInteger(n) && n >= 1 && n <= 14))];
 }
 
 function normalizarMejores(objeto) {
   const salida = {};
   if (!objeto || typeof objeto !== "object") return salida;
-  for (const nivel of [1, 2, 3, 4]) {
+  for (const nivel of [1, 2, 3, 4, 5, 6, 7, 8]) {
     const valor = Number(objeto[nivel] ?? objeto[String(nivel)]);
     if (Number.isInteger(valor) && valor >= 0 && valor <= 10) salida[String(nivel)] = valor;
   }
@@ -193,7 +193,8 @@ function fusionar(actual, entrante) {
 }
 
 function nivelAbierto(mejores, nivel) {
-  if (nivel <= 1) return true;
+  const primero = nivel <= 4 ? 1 : 5;
+  if (nivel === primero) return true;
   return Number(mejores[String(nivel - 1)] ?? 0) >= 7;
 }
 
@@ -223,9 +224,9 @@ function filaRanking(usuario, intentos, progreso) {
   return {
     alias: usuario.alias,
     primerIntento: suma,
-    intentos: intentos.length,
+    intentos: intentos.filter((intento) => intento.nivel >= 1 && intento.nivel <= 4).length,
     nivelesSuperados: niveles,
-    lecciones: progreso.leidos.length,
+    lecciones: progreso.leidos.filter((id) => id >= 1 && id <= 6).length,
     creado: usuario.creado,
     id: usuario.id,
   };
@@ -413,7 +414,7 @@ const servidor = createServer(async (req, res) => {
     if (ruta === "/api/leidos" && metodo === "POST") {
       const cuerpo = await leerCuerpo(req);
       const id = Number(cuerpo.id);
-      if (!Number.isInteger(id) || id < 1 || id > 6) {
+      if (!Number.isInteger(id) || id < 1 || id > 14) {
         enviar(res, 400, { error: "Esa lección no existe." });
         return;
       }
@@ -429,7 +430,7 @@ const servidor = createServer(async (req, res) => {
       const cuerpo = await leerCuerpo(req);
       const nivel = Number(cuerpo.nivel);
       const aciertos = Number(cuerpo.aciertos);
-      if (!Number.isInteger(nivel) || nivel < 1 || nivel > 4) {
+      if (!Number.isInteger(nivel) || nivel < 1 || nivel > 8) {
         enviar(res, 400, { error: "Ese nivel no existe." });
         return;
       }

@@ -161,7 +161,9 @@ export function ProgresoProvider({ children }) {
 
   const desbloqueado = useCallback(
     (nivel) => {
-      if (nivel <= 1) return true;
+      const primero = nivel <= 4 ? 1 : 5;
+      if (nivel === primero) return true;
+      if (nivel < 1 || nivel > 8) return false;
       return Number(estado.mejores[nivel - 1] ?? 0) >= 7;
     },
     [estado.mejores],

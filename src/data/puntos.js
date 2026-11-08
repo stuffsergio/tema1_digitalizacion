@@ -29,6 +29,46 @@ export const puntos = {
     "Un comando de alto nivel se traduce a miles de instrucciones binarias.",
     "El sistema operativo reparte la CPU entre programas, tan rápido que parecen simultáneos.",
   ],
+  7: [
+    "Internet nace en ARPANET, con Vint Cerf y Bob Kahn entre sus diseñadores.",
+    "Es una red de redes independientes, sin un ordenador central que la controle.",
+    "Los mensajes se parten y pueden tomar cualquier camino de la malla.",
+  ],
+  8: [
+    "Un byte son 8 bits. Un megabyte son, en esta cuenta, un millón de bytes.",
+    "La fibra lleva bits como luz. El cobre se degrada a pocas decenas de metros.",
+    "La latencia es el tiempo de viaje. El Wi-Fi acaba en un cable porque la radio no llega lejos.",
+  ],
+  9: [
+    "IPv4 usa 32 bits. IPv6 usa 128 y abre una cantidad enorme de direcciones.",
+    "El DNS traduce un nombre, como code.org, a una dirección IP.",
+    "En el DNS spoofing, la caché apunta un nombre legítimo a una IP maliciosa.",
+  ],
+  10: [
+    "Un archivo grande viaja partido en paquetes, no de una pieza.",
+    "El router elige un camino. Si uno falla, los paquetes toman otro.",
+    "TCP numera los paquetes, los reordena y pide de nuevo el que se perdió.",
+  ],
+  11: [
+    "GET pide una página. POST envía datos, como un formulario.",
+    "La cookie guarda un identificador para que el sitio recuerde la sesión.",
+    "HTTP va en texto claro. HTTPS añade SSL o TLS y un certificado de una autoridad.",
+  ],
+  12: [
+    "El cifrado de César solo tiene 26 claves y se prueba en minutos.",
+    "La llave pública cifra. Solo la llave privada del destinatario abre el mensaje.",
+    "Así se puede hablar en secreto sin haber compartido antes una clave.",
+  ],
+  13: [
+    "Cerca del 90 % de los ataques salen de un error humano, no de un fallo del programa.",
+    "Una botnet es una red de máquinas infectadas. Un DDoS las usa para saturar un servidor.",
+    "El phishing imita un correo o una web para que entregues una contraseña.",
+  ],
+  14: [
+    "Las arañas siguen enlaces y guardan las páginas en un índice ya preparado.",
+    "PageRank mira cuántas webs, y de qué calidad, enlazan a una página.",
+    "La búsqueda no recorre toda la web en ese instante: tardaría demasiado.",
+  ],
 };
 
 export const citas = {
@@ -61,5 +101,45 @@ export const citas = {
     texto:
       "Parece que hay decenas de programas a la vez. En realidad el sistema operativo cambia de uno a otro en fracciones de segundo y comparten la misma CPU.",
     fuente: "Hardware and Software",
+  },
+  7: {
+    texto:
+      "Internet es una arquitectura distribuida, sin un punto único de fallo, donde redes independientes se interconectan con protocolos comunes.",
+    fuente: "What is the Internet?",
+  },
+  8: {
+    texto:
+      "La fibra manda los bits como luz. El cobre se estropea enseguida, y el Wi-Fi tiene que volver a un cable.",
+    fuente: "Wires, Cables & WiFi",
+  },
+  9: {
+    texto:
+      "El DNS es la guía que convierte un nombre que puedes leer en la dirección numérica de una máquina.",
+    fuente: "IP Addresses and DNS",
+  },
+  10: {
+    texto:
+      "IP elige el camino de cada paquete. TCP comprueba que no falte ninguno y pide otra vez el que se perdió.",
+    fuente: "Packets, Routing and Reliability",
+  },
+  11: {
+    texto:
+      "HTTP pide y envía. HTTPS, con un certificado, evita que esa conversación viaje en texto claro.",
+    fuente: "HTTP and HTML",
+  },
+  12: {
+    texto:
+      "Con una llave pública se puede cifrar para alguien sin haber quedado antes en un secreto compartido.",
+    fuente: "Encryption and Public Keys",
+  },
+  13: {
+    texto:
+      "La mayoría de los ataques no rompen el programa: convencen a una persona.",
+    fuente: "Cybersecurity and Crime",
+  },
+  14: {
+    texto:
+      "El buscador no recorre la web cuando preguntas. Consulta un índice que las arañas han ido llenando.",
+    fuente: "How Search Works",
   },
 };

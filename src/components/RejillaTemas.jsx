@@ -16,7 +16,7 @@ const tarjeta = {
   },
 };
 
-export function RejillaTemas({ temas, leidos }) {
+export function RejillaTemas({ temas, leidos, base = "/tema1/video" }) {
   const reduce = useReducedMotion();
 
   return (
@@ -32,7 +32,7 @@ export function RejillaTemas({ temas, leidos }) {
         return (
           <motion.div key={tema.id} variants={reduce ? undefined : tarjeta} className="h-full">
             <Link
-              to={`/tema/${tema.id}`}
+              to={`${base}/${tema.id}`}
               className={`tema-card${leida ? " tema-card-leida" : ""}`}
             >
               <span className="flex items-start justify-between gap-4">

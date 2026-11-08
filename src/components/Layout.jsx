@@ -26,7 +26,7 @@ function Enlace({ to, end, nombre, Icono }) {
 
 export function Layout() {
   const { pathname } = useLocation();
-  const { hechos, usuario } = useProgreso();
+  const { usuario } = useProgreso();
   const [abierto, setAbierto] = useState(false);
 
   useEffect(() => {
@@ -54,8 +54,6 @@ export function Layout() {
             <span className="block truncate text-[0.98rem] tracking-[-0.02em]">Digitalización</span>
             <span className="block text-[0.68rem] tracking-[0.14em] text-ink/60 uppercase">
               1.º DAW
-              <span className="sr-only">. Progreso del tema, {hechos} de 10 hitos.</span>
-              <span aria-hidden="true"> · {hechos}/10</span>
             </span>
           </NavLink>
           <nav className="hidden items-center gap-5 lg:flex" aria-label="Secciones">
@@ -125,8 +123,8 @@ export function Layout() {
       <footer className="border-t border-line pb-[env(safe-area-inset-bottom)]">
         <div className="wrap flex flex-col gap-2 py-6 text-[0.9rem] leading-relaxed text-ink/70 sm:flex-row sm:items-end sm:justify-between">
           <p className="max-w-[62ch]">
-            Digitalización, 1.º de DAW. Resúmenes del Tema 1 a partir de la serie How Computers
-            Work, de Code.org.
+            Digitalización, 1.º de DAW. Resúmenes a partir de las series How Computers Work y The
+            Internet, de Code.org.
           </p>
           <p>Material de estudio.</p>
         </div>
